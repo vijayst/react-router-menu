@@ -5,6 +5,7 @@
         padding: 6px 20px;
         list-style-type: none;
         transition: background-color 200ms;
+        cursor: pointer;
 
         &:hover {
             background-color: darken(lightblue, 20%);
@@ -20,6 +21,14 @@
             }
 
             &:active {
+                color: red;
+            }
+        }
+
+        &--active {
+            background-color: darken(lightblue, 30%);
+
+            a {
                 color: red;
             }
         }

@@ -1,12 +1,45 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import './menu.scss';
 
-export default function Menu() {
+const items = [
+    {
+        path: '/',
+        text: 'Home'
+    },
+    {
+        path: '/about',
+        text: 'About'
+    },
+    {
+        path: '/contact',
+        text: 'Contact'
+    }
+];
+
+function Menu(props) {
+    function handleClick(path) {
+        props.history.push(path);
+    }
+
     return (
         <ul className="menu">
-            <li className="menu__item"><Link to="/">Home</Link></li>
-            <li className="menu__item"><Link to="/about">About</Link></li>
-            <li className="menu__item"><Link to="/contact">Contact</Link></li>
+            {items.map(item => (
+                <li
+                    key={item.path}
+                    onClick={handleClick.bind(null, item.path)}
+                    className={
+                        props.location.pathname === item.path
+                            ? 'menu__item menu__item--active'
+                            : 'menu__item'
+                    }
+                >
+                    <Link to={item.path}>{item.text}</Link>
+                </li>
+            ))}
         </ul>
     );
 }
+
+export default withRouter(Menu);
+
