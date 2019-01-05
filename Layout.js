@@ -9,6 +9,7 @@ export default function Layout() {
   return (
     <div className="app">
       <div className="app__sidebar">
+        <Menu />
       </div>
       <main className="app__content">
         <Switch>

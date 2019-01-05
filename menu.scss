@@ -1,0 +1,26 @@
+.menu {
+    padding: 0;
+
+    &__item {
+        padding: 6px 20px;
+        list-style-type: none;
+
+        &:hover {
+            background-color: darken(lightblue, 20%);
+        }
+
+        a {
+            color: lighten(red, 20%);
+            text-decoration: none;
+
+            &:hover {
+                color: lighten(red, 10%);
+                text-decoration: underline;
+            }
+
+            &:active {
+                color: red;
+            }
+        }
+    }
+}
